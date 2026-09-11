@@ -11,8 +11,8 @@ const options = {
     },
     servers: [
       {
-        url: process.env.BASE_URL || 'http://localhost:3000',
-        description: 'API server'
+        url: '/',
+        description: 'Current server'
       }
     ]
   },

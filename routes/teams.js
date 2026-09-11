@@ -129,6 +129,12 @@ router.put('/:id', teamIdRules, teamUpdateRules, validate, teamsController.updat
  *   delete:
  *     summary: Delete a team
  *     tags: [Teams]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: Team deleted

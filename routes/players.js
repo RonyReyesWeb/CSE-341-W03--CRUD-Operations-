@@ -149,6 +149,12 @@ router.put('/:id', playerIdRules, playerUpdateRules, validate, playersController
  *   delete:
  *     summary: Delete a player
  *     tags: [Players]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
  *     responses:
  *       200:
  *         description: Player deleted
