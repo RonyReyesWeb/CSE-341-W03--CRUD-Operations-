@@ -47,6 +47,39 @@ router.get('/:id', playerIdRules, validate, playersController.getSinglePlayer);
  *   post:
  *     summary: Create a new player
  *     tags: [Players]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [firstName, lastName, position, team, nationality, age, jerseyNumber, heightCm]
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *                 example: Juan
+ *               lastName:
+ *                 type: string
+ *                 example: Reyes
+ *               position:
+ *                 type: string
+ *                 enum: [Goalkeeper, Defender, Midfielder, Forward, Winger]
+ *                 example: Winger
+ *               team:
+ *                 type: string
+ *                 example: FC Awesome
+ *               nationality:
+ *                 type: string
+ *                 example: Guatemalan
+ *               age:
+ *                 type: integer
+ *                 example: 28
+ *               jerseyNumber:
+ *                 type: integer
+ *                 example: 11
+ *               heightCm:
+ *                 type: number
+ *                 example: 168
  *     responses:
  *       201:
  *         description: Player created
@@ -61,6 +94,45 @@ router.post('/', playerCreateRules, validate, playersController.createPlayer);
  *   put:
  *     summary: Update an existing player
  *     tags: [Players]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [firstName, lastName, position, team, nationality, age, jerseyNumber, heightCm]
+ *             properties:
+ *               firstName:
+ *                 type: string
+ *                 example: Juan
+ *               lastName:
+ *                 type: string
+ *                 example: Reyes
+ *               position:
+ *                 type: string
+ *                 enum: [Goalkeeper, Defender, Midfielder, Forward, Winger]
+ *                 example: Winger
+ *               team:
+ *                 type: string
+ *                 example: FC Awesome
+ *               nationality:
+ *                 type: string
+ *                 example: Guatemalan
+ *               age:
+ *                 type: integer
+ *                 example: 28
+ *               jerseyNumber:
+ *                 type: integer
+ *                 example: 11
+ *               heightCm:
+ *                 type: number
+ *                 example: 168
  *     responses:
  *       200:
  *         description: Player updated

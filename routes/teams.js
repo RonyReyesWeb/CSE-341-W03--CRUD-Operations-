@@ -47,6 +47,29 @@ router.get('/:id', teamIdRules, validate, teamsController.getSingleTeam);
  *   post:
  *     summary: Create a new team
  *     tags: [Teams]
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [name, country, league, foundedYear, stadium]
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: FC Awesome
+ *               country:
+ *                 type: string
+ *                 example: Guatemala
+ *               league:
+ *                 type: string
+ *                 example: Liga Nacional
+ *               foundedYear:
+ *                 type: integer
+ *                 example: 1998
+ *               stadium:
+ *                 type: string
+ *                 example: Estadio Central
  *     responses:
  *       201:
  *         description: Team created
@@ -61,6 +84,35 @@ router.post('/', teamCreateRules, validate, teamsController.createTeam);
  *   put:
  *     summary: Update an existing team
  *     tags: [Teams]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *     requestBody:
+ *       required: true
+ *       content:
+ *         application/json:
+ *           schema:
+ *             type: object
+ *             required: [name, country, league, foundedYear, stadium]
+ *             properties:
+ *               name:
+ *                 type: string
+ *                 example: FC Awesome
+ *               country:
+ *                 type: string
+ *                 example: Guatemala
+ *               league:
+ *                 type: string
+ *                 example: Liga Nacional
+ *               foundedYear:
+ *                 type: integer
+ *                 example: 1998
+ *               stadium:
+ *                 type: string
+ *                 example: Estadio Central
  *     responses:
  *       200:
  *         description: Team updated
